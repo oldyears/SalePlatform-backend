@@ -1,0 +1,357 @@
+{
+  "Routes": [
+    //UserIdentification
+    {
+      "UpstreamPathTemplate": "/api/UserSystem/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/UserIdentification/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1025
+        },
+        {
+          "Host": "localhost",
+          "Port": 1031
+        },
+        {
+          "Host": "localhost",
+          "Port": 1032
+        },
+        {
+          "Host": "localhost",
+          "Port": 1033
+        },
+        {
+          "Host": "localhost",
+          "Port": 1034
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    },
+
+    //Logistics
+    {
+      "UpstreamPathTemplate": "/api/Logistics/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/Logistics/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1026
+        },
+        {
+          "Host": "localhost",
+          "Port": 1035
+        },
+        {
+          "Host": "localhost",
+          "Port": 1036
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    },
+
+    //Payment
+    {
+      "UpstreamPathTemplate": "/api/Payment/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/Payment/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1027
+        },
+        {
+          "Host": "localhost",
+          "Port": 1037
+        },
+        {
+          "Host": "localhost",
+          "Port": 1038
+        },
+        {
+          "Host": "localhost",
+          "Port": 1039
+        },
+        {
+          "Host": "localhost",
+          "Port": 1040
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    },
+
+    //Store
+    {
+      "UpstreamPathTemplate": "/api/Store/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/Store/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1028
+        },
+        {
+          "Host": "localhost",
+          "Port": 1041
+        },
+        {
+          "Host": "localhost",
+          "Port": 1042
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    },
+
+    //Order
+    {
+      "UpstreamPathTemplate": "/api/Order/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/Order/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1029
+        },
+        {
+          "Host": "localhost",
+          "Port": 1043
+        },
+        {
+          "Host": "localhost",
+          "Port": 1044
+        },
+        {
+          "Host": "localhost",
+          "Port": 1045
+        },
+        {
+          "Host": "localhost",
+          "Port": 1046
+        },
+        {
+          "Host": "localhost",
+          "Port": 1047
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    },
+
+    //Product
+    {
+      "UpstreamPathTemplate": "/api/Product/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/Product/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1030
+        },
+        {
+          "Host": "localhost",
+          "Port": 1048
+        },
+        {
+          "Host": "localhost",
+          "Port": 1049
+        },
+        {
+          "Host": "localhost",
+          "Port": 1050
+        },
+        {
+          "Host": "localhost",
+          "Port": 1051
+        },
+        {
+          "Host": "localhost",
+          "Port": 1052
+        },
+        {
+          "Host": "localhost",
+          "Port": 1053
+        },
+        {
+          "Host": "localhost",
+          "Port": 1054
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    },
+
+    //Cart
+    {
+      "UpstreamPathTemplate": "/api/Cart/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamHeaderTransform": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild",
+        "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
+      },
+      "DownstreamPathTemplate": "/Cart/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1030
+        },
+        {
+          "Host": "localhost",
+          "Port": 1048
+        },
+        {
+          "Host": "localhost",
+          "Port": 1049
+        },
+        {
+          "Host": "localhost",
+          "Port": 1050
+        },
+        {
+          "Host": "localhost",
+          "Port": 1051
+        },
+        {
+          "Host": "localhost",
+          "Port": 1052
+        },
+        {
+          "Host": "localhost",
+          "Port": 1053
+        },
+        {
+          "Host": "localhost",
+          "Port": 1054
+        }
+      ],
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DelegatingHandlers": [
+        "HealthCheck"
+      ],
+
+      "UseServiceDiscovery": false
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": ""
+    //"BaseUrl\": \"http://47.115.231.142:8081",
+    //"ReRoutesCaseSensitive": false,
+    //"RequestIdKey": "OcRequestId",
+    //"InternalServerErrorStatusCode": 500
+  },
+
+  "DelegatingHandlers": [
+    {
+      "Key": "HealthCheck",
+      "AssemblyName": "Ocelot.HealthChecks",
+      "ClassName": "Ocelot.Middleware.HealthCheckMiddleware",
+      "IsEnabled": true,
+      "Options": {
+        "Path": "/hc",
+        "Timeout": 1000,
+        "FailureStatusCodes": [ 501 ],
+        "AllowCachingResponses": false,
+        "Predicate": {
+          "Path": "/api/values",
+          "Methods": [ "GET" ]
+        }
+      }
+    }
+  ]
+}
