@@ -22,17 +22,17 @@ public partial class ModelContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseOracle("DATA SOURCE=106.15.227.197:1521/ORCL;USER ID=saleplatform;PASSWORD=jyx223420;");
+        => optionsBuilder.UseOracle("DATA SOURCE=106.15.203.185:1521/oradb;USER ID=oldyear;PASSWORD=021223;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("DBTEAM");
+        modelBuilder.HasDefaultSchema("OLDYEAR");
 
         modelBuilder.Entity<Myorder>(entity =>
         {
             entity.HasKey(e => e.OrderId).HasName("ORDER_PK");
 
-            entity.ToTable("myorder");
+            entity.ToTable("MYORDER");
 
             entity.Property(e => e.OrderId)
                 .HasMaxLength(36)
@@ -60,10 +60,9 @@ public partial class ModelContext : DbContext
 
         modelBuilder.Entity<OrderPick>(entity =>
         {
-            // TODO 这里的键名是否正确
             entity.HasKey(e => new { e.OrderId, e.PickId }).HasName("ORDER_PICK_PK");
 
-            entity.ToTable("order_pick");
+            entity.ToTable("ORDER_PICK");
 
             entity.Property(e => e.OrderId)
                 .HasMaxLength(36)

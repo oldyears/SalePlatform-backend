@@ -230,8 +230,7 @@ namespace Logistics.service.impl
             }
             catch
             {
-                //Console.WriteLine("进入close状态");
-                ;
+                Console.WriteLine("进入close状态");
             }
 
 
