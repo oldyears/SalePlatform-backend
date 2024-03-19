@@ -21,18 +21,17 @@ public partial class ModelContext : DbContext
     public virtual DbSet<Logisticsinfo> Logisticsinfos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseOracle("DATA SOURCE=47.97.5.16:1521/xe;USER ID=dbteam;PASSWORD=dbteam;");
+        => optionsBuilder.UseOracle("DATA SOURCE=106.15.203.185:1521/oradb;USER ID=oldyear;PASSWORD=021223;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("DBTEAM");
+        modelBuilder.HasDefaultSchema("OLDYEAR");
 
         modelBuilder.Entity<Logistic>(entity =>
         {
             entity.HasKey(e => e.LogisticsId).HasName("LOGISTICS_PK");
 
-            entity.ToTable("logistics");
+            entity.ToTable("LOGISTICS");
 
             entity.Property(e => e.LogisticsId)
                 .HasMaxLength(36)
@@ -61,7 +60,7 @@ public partial class ModelContext : DbContext
 
         modelBuilder.Entity<Logisticsinfo>(entity =>
         {
-            entity.HasKey(e => new { e.LogisticsId, e.ArrivePlace, e.ArriveTime }).HasName("NEWTABLE_PK");
+            entity.HasKey(e => new { e.LogisticsId, e.ArrivePlace, e.ArriveTime }).HasName("LOGISTICINFO_PK");
 
             entity.ToTable("LOGISTICSINFO");
 
@@ -79,7 +78,7 @@ public partial class ModelContext : DbContext
 
             entity.HasOne(d => d.Logistics).WithMany(p => p.Logisticsinfos)
                 .HasForeignKey(d => d.LogisticsId)
-                .HasConstraintName("FK_logistics");
+                .HasConstraintName("FK_LOGISTICS");
         });
 
         OnModelCreatingPartial(modelBuilder);

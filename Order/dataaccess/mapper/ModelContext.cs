@@ -60,7 +60,8 @@ public partial class ModelContext : DbContext
 
         modelBuilder.Entity<OrderPick>(entity =>
         {
-            entity.HasKey(e => new { e.OrderId, e.PickId }).HasName("ORDER_COMMODITY_PK");
+            // TODO 这里的键名是否正确
+            entity.HasKey(e => new { e.OrderId, e.PickId }).HasName("ORDER_PICK_PK");
 
             entity.ToTable("order_pick");
 
